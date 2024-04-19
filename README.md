@@ -1,6 +1,6 @@
 # Custom Diffusion 360
 
-### [website](https://www.cs.cmu.edu/~customdiffusion360)  | [paper]() 
+### [website](https://customdiffusion360.github.io)  | [paper](http://arxiv.org/abs/2404.12333) 
 
 
 <br>
@@ -10,7 +10,8 @@
 </p>
 </div>
 
-[Custom Diffusion 360](https://www.cs.cmu.edu/~customdiffusion360) allows you to control the camera viewpoint of the custom object in generated images by text-to-image diffusion models, such as [Stable Diffusion](https://github.com/Stability-AI/generative-models). Given a 360 degree mutliview dataset (~50 images), we fine-tune FeatureNeRF blocks in the intermediate feature space of the diffusion model to condition the generation on a target camera pose. 
+
+[Custom Diffusion 360](https://customdiffusion360.github.io) allows you to control the camera viewpoint of the custom object in generated images by text-to-image diffusion models, such as [Stable Diffusion](https://github.com/Stability-AI/generative-models). Given a 360 degree mutliview dataset (~50 images), we fine-tune FeatureNeRF blocks in the intermediate feature space of the diffusion model to condition the generation on a target camera pose. 
 
 **Customizing Text-to-Image Diffusion with Camera Viewpoint Control** <br>
 [Nupur Kumari](https://nupurkmr9.github.io/)<sup>*</sup>, [Grace Su](https://graceduansu.github.io/)<sup>*</sup>, [Richard Zhang](https://richzhang.github.io/), [Taesung Park](https://taesung.me/) [Eli Shechtman](https://research.adobe.com/person/eli-shechtman/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/)<br>
@@ -20,7 +21,7 @@
 ## Results
 
 All of our results are based on the [SDXL](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0) model.
-We customize the model on various categories of multiview images, e.g., car, teddybear, chair, toy, motorcycle. For more generations and comparisons with baselines, please refer to our [webpage](https://www.cs.cmu.edu/~customdiffusion360/).
+We customize the model on various categories of multiview images, e.g., car, teddybear, chair, toy, motorcycle. For more generations and comparisons with baselines, please refer to our [webpage](https://customdiffusion360.github.io).
 
 ### Comparison to baselines
 
@@ -102,8 +103,8 @@ python sample.py --custom_model_dir pretrained-models/car0 --output_dir outputs 
 We share the 14 concepts (part of [CO3Dv2](https://github.com/facebookresearch/co3d) and [NAVI](https://navidataset.github.io)) that we used in our paper for easy experimentation. The datasets are redistributed under the same licenses as the original works. 
 
 ```
-gdown 1q_P4crQ4IDAAA6P_E1HnPY2GXhTKDoOs
-tar -xvf  data.tar
+gdown 1GRnkm4xp89bnYAPnp01UMVlCbmdR7SeG
+tar -xvzf  data.tar.gz
 ```
 
 **Train:**
@@ -138,4 +139,4 @@ Thanks to the following for releasing their code. Our code builds upon these.
 ```
 
 ## Acknowledgments
-We are thankful to Kangle Deng, Sheng-Yu Wang, and Gaurav Parmar for their helpful comments and discussion and to Sean Liu, Ruihan Gao, Yufei Ye, and Bharath Raj for proofreading the draft. This work was partly done by Nupur Kumari during the Adobe internship. The work is partly supported by Adobe Inc. This material is based upon work supported by the National Science Foundation Graduate Research Fellowship Program under Grant No. DGE2140739. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+We are thankful to Kangle Deng, Sheng-Yu Wang, and Gaurav Parmar for their helpful comments and discussion and to Sean Liu, Ruihan Gao, Yufei Ye, and Bharath Raj for proofreading the draft. This work was partly done by Nupur Kumari during the Adobe internship. The work is partly supported by Adobe Research, the Packard Fellowship, the Amazon Faculty Research Award, and NSF IIS-2239076. Grace Su is supported by the NSF Graduate Research Fellowship (Grant No. DGE2140739).

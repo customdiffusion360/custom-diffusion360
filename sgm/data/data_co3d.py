@@ -1,12 +1,10 @@
 # code taken and modified from https://github.com/amyxlase/relpose-plus-plus/blob/b33f7d5000cf2430bfcda6466c8e89bc2dcde43f/relpose/dataset/co3d_v2.py#L346)
 import os.path as osp
-import random
-
 import numpy as np
 import torch
 import pytorch_lightning as pl
 
-from PIL import Image, ImageFile 
+from PIL import Image, ImageFile
 import json
 import gzip
 from torch.utils.data import DataLoader, Dataset
@@ -23,7 +21,7 @@ Image.MAX_IMAGE_PIXELS = None
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
-# Added: normalize camera poses 
+# Added: normalize camera poses
 def intersect_skew_line_groups(p, r, mask):
     # p, r both of shape (B, N, n_intersected_lines, 3)
     # mask of shape (B, N, n_intersected_lines)
@@ -384,7 +382,7 @@ class Co3dDataset(Dataset):
 
         side_length = bbox[2] - bbox[0]
         center = (bbox[:2] + bbox[2:]) / 2
-        extent = side_length / 2 
+        extent = side_length / 2
 
         # Final coordinates need to be integer for cropping.
         ul = (center - extent).round().astype(int)
@@ -553,7 +551,7 @@ class Co3dDataset(Dataset):
             images_transformed.append(self.transform(image))
             masks_transformed.append(self.transformmask(mask))
 
-            crop_parameters.append(torch.tensor([bbox[0], bbox[1], bbox[2] - bbox[0], bbox[3] - bbox[1] ]).int())
+            crop_parameters.append(torch.tensor([bbox[0], bbox[1], bbox[2] - bbox[0], bbox[3] - bbox[1]]).int())
             original_size_as_tuple.append(torch.tensor([w, h, bbox[2] - bbox[0], bbox[3] - bbox[1]]))
             images.append(image)
             rotations.append(anno["R"])
