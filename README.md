@@ -55,7 +55,7 @@ Given multi-view images of an object with its camera pose, our method customizes
 
 ```
 git clone https://github.com/customdiffusion360/custom-diffusion360.git
-cd custom-diffusion-360
+cd custom-diffusion360
 conda create -n pose python=3.8 
 conda activate pose
 pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu118
