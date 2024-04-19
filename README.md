@@ -3,15 +3,11 @@
 ### [website](https://customdiffusion360.github.io)  | [paper](http://arxiv.org/abs/2404.12333) 
 
 
-<br>
-<div class="gif">
-<p align="center">
-<img src='assets/teaser.jpg' align="center" width=800>
-</p>
-</div>
+https://github.com/customdiffusion360/custom-diffusion360/assets/167265500/67b30422-5b82-4ee2-95a0-26c2e74154f8
 
 
-[Custom Diffusion 360](https://customdiffusion360.github.io) allows you to control the camera viewpoint of the custom object in generated images by text-to-image diffusion models, such as [Stable Diffusion](https://github.com/Stability-AI/generative-models). Given a 360 degree mutliview dataset (~50 images), we fine-tune FeatureNeRF blocks in the intermediate feature space of the diffusion model to condition the generation on a target camera pose. 
+
+[Custom Diffusion 360](https://customdiffusion360.github.io) allows you to control the camera viewpoint of the custom object in generated images by text-to-image diffusion models, such as [Stable Diffusion](https://github.com/Stability-AI/generative-models). Given a 360-degree multiview dataset (~50 images), we fine-tune FeatureNeRF blocks in the intermediate feature space of the diffusion model to condition the generation on a target camera pose. 
 
 **Customizing Text-to-Image Diffusion with Camera Viewpoint Control** <br>
 [Nupur Kumari](https://nupurkmr9.github.io/)<sup>*</sup>, [Grace Su](https://graceduansu.github.io/)<sup>*</sup>, [Richard Zhang](https://richzhang.github.io/), [Taesung Park](https://taesung.me/) [Eli Shechtman](https://research.adobe.com/person/eli-shechtman/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/)<br>
@@ -52,7 +48,7 @@ We customize the model on various categories of multiview images, e.g., car, ted
 </div>
 
 
-Given multi-view images of a an object with its camera pose, our method customizes a text-to-image diffusion model with that concept with an additional condition of target camera pose. We modify a subset of transformer layers to be pose-conditioned. This is done by adding a new FeatureNeRF block in intermediate feature space of the transformer layer. We finetune the new weights with the multiview dataset while keeping pre-trained model weights frozen. Similar to previous model customization methods, we add a new modifier token V* in front of the category name, e.g., V* car.
+Given multi-view images of an object with its camera pose, our method customizes a text-to-image diffusion model with that concept with an additional condition of target camera pose. We modify a subset of transformer layers to be pose-conditioned. This is done by adding a new FeatureNeRF block in intermediate feature space of the transformer layer. We finetune the new weights with the multiview dataset while keeping pre-trained model weights frozen. Similar to previous model customization methods, we add a new modifier token V* in front of the category name, e.g., V* car.
 
 
 ## Getting Started
