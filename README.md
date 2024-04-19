@@ -54,7 +54,7 @@ Given multi-view images of an object with its camera pose, our method customizes
 ## Getting Started
 
 ```
-git clone https://github.com/nupurkmr9/custom-diffusion-360.git
+git clone https://github.com/customdiffusion360/custom-diffusion360.git
 cd custom-diffusion-360
 conda create -n pose python=3.8 
 conda activate pose
