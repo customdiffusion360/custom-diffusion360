@@ -6,11 +6,10 @@
 https://github.com/customdiffusion360/custom-diffusion360/assets/167265500/67b30422-5b82-4ee2-95a0-26c2e74154f8
 
 
+[Custom Diffusion 360](https://customdiffusion360.github.io) allows you to control the new custom object's viewpoint in generated images by text-to-image diffusion models, such as [Stable Diffusion](https://github.com/Stability-AI/generative-models). Given a 360-degree multiview dataset (~50 images), we fine-tune FeatureNeRF blocks in the intermediate feature space of the diffusion model to condition the generation on a target camera pose. 
 
-[Custom Diffusion 360](https://customdiffusion360.github.io) allows you to control the camera viewpoint of the custom object in generated images by text-to-image diffusion models, such as [Stable Diffusion](https://github.com/Stability-AI/generative-models). Given a 360-degree multiview dataset (~50 images), we fine-tune FeatureNeRF blocks in the intermediate feature space of the diffusion model to condition the generation on a target camera pose. 
-
-**Customizing Text-to-Image Diffusion with Camera Viewpoint Control** <br>
-<!-- [Nupur Kumari](https://nupurkmr9.github.io/)<sup>*</sup>, [Grace Su](https://graceduansu.github.io/)<sup>*</sup>, [Richard Zhang](https://richzhang.github.io/), [Taesung Park](https://taesung.me/) [Eli Shechtman](https://research.adobe.com/person/eli-shechtman/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/)<br> -->
+**Customizing Text-to-Image Diffusion with Object Viewpoint Control** <br>
+[Nupur Kumari](https://nupurkmr9.github.io/)<sup>*</sup>, [Grace Su](https://graceduansu.github.io/)<sup>*</sup>, [Richard Zhang](https://richzhang.github.io/), [Taesung Park](https://taesung.me/) [Eli Shechtman](https://research.adobe.com/person/eli-shechtman/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/)<br>
 <br>
 
 
@@ -122,17 +121,17 @@ Thanks to the following for releasing their code. Our code builds upon these.
 **[Relpose-plus-plus](https://github.com/amyxlase/relpose-plus-plus/tree/main)**
 **[GBT](https://github.com/mayankgrwl97/gbt)**
 
-<!-- 
+
 ## Bibliography
 
 ```
-@article{kumari2024customdiffusion360,
-  title={Customizing Text-to-Image Diffusion with Camera Viewpoint Control},
+@inproceedings{kumari2024customdiffusion360,
+  title={Customizing Text-to-Image Diffusion with Object Viewpoint Control},
   author={Kumari, Nupur and Su, Grace and Zhang, Richard and Park, Taesung and Shechtman, Eli and Zhu, Jun-Yan},
-  journal = {Arxiv},
+  booktitle = {SIGGRAPH Asia},
   year      = {2024}
 }
 ```
 
 ## Acknowledgments
-We are thankful to Kangle Deng, Sheng-Yu Wang, and Gaurav Parmar for their helpful comments and discussion and to Sean Liu, Ruihan Gao, Yufei Ye, and Bharath Raj for proofreading the draft. This work was partly done by Nupur Kumari during the Adobe internship. The work is partly supported by Adobe Research, the Packard Fellowship, the Amazon Faculty Research Award, and NSF IIS-2239076. Grace Su is supported by the NSF Graduate Research Fellowship (Grant No. DGE2140739). -->
+We are thankful to Kangle Deng, Sheng-Yu Wang, and Gaurav Parmar for their helpful comments and discussion and to Sean Liu, Ruihan Gao, Yufei Ye, and Bharath Raj for proofreading the draft. This work was partly done by Nupur Kumari during the Adobe internship. The work is partly supported by Adobe Research, the Packard Fellowship, the Amazon Faculty Research Award, and NSF IIS-2239076. Grace Su is supported by the NSF Graduate Research Fellowship (Grant No. DGE2140739).

@@ -1,19 +1,21 @@
 # code taken and modified from https://github.com/amyxlase/relpose-plus-plus/blob/b33f7d5000cf2430bfcda6466c8e89bc2dcde43f/relpose/dataset/co3d_v2.py#L346)
-import os.path as osp
-import numpy as np
-import torch
-import pytorch_lightning as pl
-
-from PIL import Image, ImageFile
-import json
 import gzip
+import json
+import os.path as osp
+
+import numpy as np
+import pytorch_lightning as pl
+import torch
+from PIL import Image, ImageFile
+from pytorch3d.implicitron.dataset.utils import (
+    adjust_camera_to_bbox_crop_,
+    adjust_camera_to_image_scale_,
+)
+from pytorch3d.renderer.camera_utils import join_cameras_as_batch
+from pytorch3d.renderer.cameras import PerspectiveCameras
+from pytorch3d.transforms import Rotate, Translate
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
-from pytorch3d.renderer.cameras import PerspectiveCameras
-from pytorch3d.renderer.camera_utils import join_cameras_as_batch
-from pytorch3d.implicitron.dataset.utils import adjust_camera_to_bbox_crop_, adjust_camera_to_image_scale_
-from pytorch3d.transforms import Rotate, Translate
-
 
 CO3D_DIR = "data/training/"
 
@@ -212,7 +214,6 @@ class Co3dDataset(Dataset):
                 of the first camera translation is 1.
             mask_images (bool): If True, masks out the background of the images.
         """
-        # category = CATEGORIES
         category = sorted(category.split(','))
         self.category = category
         self.single_id = single_id
@@ -357,7 +358,6 @@ class Co3dDataset(Dataset):
         self.drop_ratio = drop_ratio
         self.kernel_tensor = torch.ones((1, 1, 7, 7))
         self.repeat = repeat
-        print(self.sequence_list, "$$$$$$$$$$$$$$$$$$$$$")
         self.valid_ids = np.arange(0, len(self.rotations[self.sequence_list[self.single_id]]), skip).tolist()
         if split == 'test':
             self.valid_ids = list(set(np.arange(0, len(self.rotations[self.sequence_list[self.single_id]])).tolist()).difference(self.valid_ids))

@@ -1,20 +1,26 @@
 import argparse
+import copy
 import glob
 import os
 import sys
-import copy
 from typing import List
-from PIL import Image
+
 import numpy as np
 import torch
 from einops import rearrange
 from omegaconf import OmegaConf
-from pytorch_lightning import seed_everything
+from PIL import Image
 from pytorch3d.renderer.camera_utils import join_cameras_as_batch
+from pytorch_lightning import seed_everything
 
 sys.path.append('./')
+from sgm.modules.utils_cameraray import (
+    interpolate_translate_interpolate_xaxis,
+    interpolate_translate_interpolate_yaxis,
+    interpolate_translate_interpolate_zaxis,
+    interpolatefocal,
+)
 from sgm.util import load_model_from_config
-from sgm.modules.utils_cameraray import interpolate_translate_interpolate_xaxis, interpolate_translate_interpolate_yaxis, interpolate_translate_interpolate_zaxis, interpolatefocal
 
 choices = []
 
@@ -220,8 +226,7 @@ def sample(config,
            ):
 
     config = OmegaConf.load(config)
-    scale_im = 3.5
-    scale = 7.5
+
     # setup guider config
     if scale_im > 0:
         guider_config = {'target': 'sgm.modules.diffusionmodules.guiders.ScheduledCFGImgTextRef',

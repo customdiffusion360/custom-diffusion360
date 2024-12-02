@@ -4,35 +4,32 @@ import glob
 import inspect
 import os
 import sys
+import time
 from inspect import Parameter
 from typing import Union
-from einops import rearrange
 
 import numpy as np
 import pytorch_lightning as pl
 import torch
+import torch.distributed as dist
 import torchvision
 import wandb
-from PIL import Image
+from einops import rearrange
 from matplotlib import pyplot as plt
 from natsort import natsorted
 from omegaconf import OmegaConf
 from packaging import version
+from PIL import Image
 from pytorch_lightning import seed_everything
 from pytorch_lightning.callbacks import Callback
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.trainer import Trainer
-from pytorch_lightning.utilities import rank_zero_only, rank_zero_info
+from pytorch_lightning.utilities import rank_zero_info, rank_zero_only
 from safetensors.torch import load_file as load_safetensors
-import time
-import torch.distributed as dist
+
 torch.backends.cuda.matmul.allow_tf32 = True
 
-from sgm.util import (
-    exists,
-    instantiate_from_config,
-    isheatmap,
-)
+from sgm.util import exists, instantiate_from_config, isheatmap
 
 MULTINODE_HACKS = True
 
@@ -470,7 +467,6 @@ class ImageLogger(Callback):
             and hasattr(pl_module, "log_images")  # and batch_idx % self.batch_freq == 0
             and callable(pl_module.log_images)
             and
-            # batch_idx > 5 and
             self.max_images > 0
         ):
             is_train = pl_module.training
@@ -1086,10 +1082,11 @@ if __name__ == "__main__":
 
     except RuntimeError as err:
         if MULTINODE_HACKS:
-            import requests
             import datetime
             import os
             import socket
+
+            import requests
 
             device = os.environ.get("CUDA_VISIBLE_DEVICES", "?")
             hostname = socket.gethostname()
