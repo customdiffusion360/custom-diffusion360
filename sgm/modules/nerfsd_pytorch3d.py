@@ -439,7 +439,7 @@ class NerfSDModule(nn.Module):
         dists_uniform = None
         weights_uniform = None
         resolution = (int(math.sqrt(xref.size(2))) if len(xref.shape) == 4 else xref.size(3))
-        input_patch_rays, ray_points, dists, ray_points_uniform, dists_uniform = (self.raymarcher(pose, resolution, weights=prev_weights, device=xref.device))
+        input_patch_rays, ray_points, dists, ray_points_uniform, dists_uniform = (self.raymarcher(pose, resolution, weights=prev_weights, imp_sample_next_step=imp_sample_next_step, device=xref.device))
         output, plane_features_attn = self.model(pose, xref, ray_points, input_patch_rays, mask_ref)
         weights = output[..., -1:]
         features = output[..., :-1]
